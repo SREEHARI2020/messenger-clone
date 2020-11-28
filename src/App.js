@@ -2,13 +2,23 @@
 import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import React,{useState,useEffect} from 'react';
 import './App.css';
+import db from './Firebase';
 import { Message } from './Message';
 import './Message.css';
 
 function App() {
 const[input,setInput]=useState('');
-const[messages,setMessage]=useState([{username:'sree',text:'hey'},{username:'hari',text:'hello'}]);
+const[messages,setMessage]=useState([]);
 const[username,setUsername]=useState('')
+useEffect(()=>{
+db.collection('messages').onSnapshot(snapshot=>
+  {
+    setMessage(snapshot.docs.map(doc=>doc.data()))
+  }
+  )
+},[]);
+
+
 
 useEffect(() => {
  setUsername(prompt("username"))
@@ -17,7 +27,7 @@ useEffect(() => {
 
 const SendMessage=(event)=>{
   event.preventDefault();
-  setMessage([...messages,{username:username,text:input}])
+  setMessage([...messages,{username:username,message:input}])
   setInput('')
 
 }

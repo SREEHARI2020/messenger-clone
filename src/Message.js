@@ -8,7 +8,7 @@ export const Message = ({username,text}) => {
      <Card className={isUser?'message_userCard':'message_guestCard'}> 
          <CardContent>
              <Typography color='white' variant='h5' component='h2'>
-             <h2>{text.username}:{text.text}</h2>
+             <h2>{text.username}:{text.message}</h2>
              </Typography>
          </CardContent>
          
