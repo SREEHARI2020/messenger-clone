@@ -1,4 +1,5 @@
 
+import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import React,{useState} from 'react';
 import './App.css';
 
@@ -18,9 +19,13 @@ console.log(messages);
     <div className="App">
      
       <form>
-
-      <input value={input} onChange={e=>setInput(e.target.value)}/>
-      <button  type='submit' onClick={SendMessage}>Send Message</button>
+      <FormControl>
+  <InputLabel >Enter message...</InputLabel>
+  <Input value={input} onChange={e=>setInput(e.target.value)} id="my-input"  />
+  <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={SendMessage}>Send Message</Button>
+</FormControl>
+    
+      
       </form>
    
     {
