@@ -1,10 +1,10 @@
-
 import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import React,{useState,useEffect} from 'react';
 import './App.css';
 import db from './Firebase';
 import { Message } from './Message';
 import './Message.css';
+import firebase from 'firebase';
 
 function App() {
 const[input,setInput]=useState('');
@@ -27,8 +27,12 @@ useEffect(() => {
 
 const SendMessage=(event)=>{
   event.preventDefault();
-  setMessage([...messages,{username:username,message:input}])
-  setInput('')
+ db.collection('messages').add({username:username,
+  message:input,
+timestamp:firebase.firestore.FieldValue.serverTimestamp()
+})
+  
+setInput('')
 
 }
 console.log(messages);
