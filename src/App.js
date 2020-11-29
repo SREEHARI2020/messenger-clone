@@ -5,15 +5,18 @@ import db from './Firebase';
 import { Message } from './Message';
 import './Message.css';
 import firebase from 'firebase';
+import FlipMove from 'react-flip-move';
 
 function App() {
 const[input,setInput]=useState('');
 const[messages,setMessage]=useState([]);
 const[username,setUsername]=useState('')
 useEffect(()=>{
-db.collection('messages').onSnapshot(snapshot=>
+db.collection('messages')
+.orderBy('timestamp','desc')
+.onSnapshot(snapshot=>
   {
-    setMessage(snapshot.docs.map(doc=>doc.data()))
+    setMessage(snapshot.docs.map(doc=>({id:doc.id,message:doc.data()})))
   }
   )
 },[]);
@@ -49,11 +52,12 @@ console.log(messages);
     
       
       </form>
-   
+   <FlipMove>
     {
-      messages.map(message=>(<Message username={username} text={message} /> 
+      messages.map(message=>(<Message key={message.id} username={username} text={message.message} /> 
     ))
     }
+    </FlipMove>
     </div>
   );
 }
