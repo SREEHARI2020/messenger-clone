@@ -42,8 +42,9 @@ console.log(messages);
 
   return (
     <div className="App">
-     <h1>hey { username }</h1>
-      <form>
+      
+     <h1>Welcome { username }</h1>
+      <form className="app-form">
       <FormControl>
   <InputLabel >Enter message...</InputLabel>
   <Input value={input} onChange={e=>setInput(e.target.value)} id="my-input"  />
