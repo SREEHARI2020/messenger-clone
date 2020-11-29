@@ -47,10 +47,10 @@ console.log(messages);
       
      <h1>Welcome { username }</h1>
       <form className="app-form">
-      <FormControl>
-  <InputLabel >Enter message...</InputLabel>
-  <Input value={input} onChange={e=>setInput(e.target.value)} id="my-input"  />
-  <IconButton disabled={!input} variant="contained" color="primary" type='submit' onClick={SendMessage}>
+      <FormControl className="app_FormControl">
+ 
+  <Input className="app_Input"value={input} placeholder="Enter your message..." onChange={e=>setInput(e.target.value)} id="my-input"  />
+  <IconButton className="app_IconButton"disabled={!input} variant="contained" color="primary" type='submit' onClick={SendMessage}>
   <SendIcon/>
   </IconButton>
 </FormControl>

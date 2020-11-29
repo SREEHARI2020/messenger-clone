@@ -45,3 +45,16 @@
   background-color:#e9e9eb;
   margin: 20px;
 }
+.app_FormControl{
+  display: flex !important;
+  flex-direction: row !important;
+
+}
+
+.app_IconButton{
+ flex:0 ;
+}
+
+.app_Input{
+  flex:.95;
+}
