@@ -6,6 +6,8 @@ import { Message } from './Message';
 import './Message.css';
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core';
 
 function App() {
 const[input,setInput]=useState('');
@@ -48,7 +50,9 @@ console.log(messages);
       <FormControl>
   <InputLabel >Enter message...</InputLabel>
   <Input value={input} onChange={e=>setInput(e.target.value)} id="my-input"  />
-  <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={SendMessage}>Send Message</Button>
+  <IconButton disabled={!input} variant="contained" color="primary" type='submit' onClick={SendMessage}>
+  <SendIcon/>
+  </IconButton>
 </FormControl>
     
       
