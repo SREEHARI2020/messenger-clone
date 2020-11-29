@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
 import SendIcon from '@material-ui/icons/Send';
 import { IconButton } from '@material-ui/core';
+import logo from './logo.png';
 
 function App() {
 const[input,setInput]=useState('');
@@ -44,7 +45,7 @@ console.log(messages);
 
   return (
     <div className="App">
-      
+    <img src={logo} />
      <h1>Welcome { username }</h1>
       <form className="app-form">
       <FormControl className="app_FormControl">
